@@ -23,6 +23,20 @@ npm run build              # build de produção
 npx tsx scripts/simulate.ts # smoke test do motor (500 partidas simuladas)
 ```
 
+## Testar no celular (GitHub Pages)
+
+O jogo continua 100% local/estático — o Pages só serve os arquivos:
+
+```bash
+DEPLOY_TARGET=pages npm run build   # gera ./out com basePath /jogo-copa
+```
+
+O conteúdo de `./out` (+ `.nojekyll`) é publicado no branch `gh-pages`.
+Com o Pages habilitado nas configurações do repositório (Deploy from a
+branch → `gh-pages`), o jogo fica em:
+
+**https://groibs.github.io/jogo-copa/**
+
 ## Fluxo do jogo
 
 ```
