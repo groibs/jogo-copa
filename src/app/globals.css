@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f7f4;
+  --foreground: #0c0c0c;
+  --aura: #22c55e;
+  --aura-soft: #86efac;
+  --aura-deep: #15803d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-aura: var(--aura);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ------------------------------------------------------------------ */
+/* Esfera de Aura — verde, brilhante, vitrificada                      */
+/* ------------------------------------------------------------------ */
+.aura-sphere {
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 32% 28%,
+    #f0fdf4 0%,
+    #bbf7d0 18%,
+    #4ade80 45%,
+    #22c55e 62%,
+    #15803d 85%,
+    #14532d 100%
+  );
+  box-shadow:
+    0 4px 14px rgba(34, 197, 94, 0.45),
+    inset 0 -4px 8px rgba(20, 83, 45, 0.35),
+    inset 0 4px 8px rgba(255, 255, 255, 0.6);
+}
+
+.aura-sphere::after {
+  content: "";
+  display: block;
+  width: 32%;
+  height: 22%;
+  margin-left: 22%;
+  margin-top: 14%;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.85);
+  filter: blur(1px);
+}
+
+.aura-glow {
+  box-shadow:
+    0 0 0 2px rgba(34, 197, 94, 0.55),
+    0 0 14px rgba(34, 197, 94, 0.55);
+}
+
+@keyframes aura-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.aura-float {
+  animation: aura-float 2.6s ease-in-out infinite;
+}
+
+@keyframes slot-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.35); }
+  50% { box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.6), 0 0 12px rgba(34, 197, 94, 0.5); }
+}
+
+.slot-pulse {
+  animation: slot-pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes card-reveal {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.card-reveal {
+  animation: card-reveal 0.45s ease-out both;
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.rise-in {
+  animation: rise-in 0.3s ease-out both;
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
